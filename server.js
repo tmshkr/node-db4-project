@@ -11,7 +11,11 @@ server.get("/api", (req, res) => {
 
 server.get("/api/recipes", (req, res) => {
   db.getRecipes()
-    .then((recipes) => res.json(recipes))
+    .then((recipes) =>
+      recipes.length
+        ? res.json(recipes)
+        : res.status(404).send("no recipes found")
+    )
     .catch((err) => {
       console.error(err);
       res
@@ -22,7 +26,11 @@ server.get("/api/recipes", (req, res) => {
 
 server.get("/api/recipes/:id/shoppingList", (req, res) => {
   db.getShoppingList(req.params.id)
-    .then((ingredients) => res.json(ingredients))
+    .then((ingredients) =>
+      ingredients.length
+        ? res.json(ingredients)
+        : res.status(404).send("no shopping list found")
+    )
     .catch((err) => {
       console.error(err);
       res
@@ -33,7 +41,11 @@ server.get("/api/recipes/:id/shoppingList", (req, res) => {
 
 server.get("/api/recipes/:id/instructions", (req, res) => {
   db.getInstructions(req.params.id)
-    .then((instructions) => res.json(instructions))
+    .then((instructions) =>
+      instructions.length
+        ? res.json(instructions)
+        : res.status(404).send("no instructions found")
+    )
     .catch((err) => {
       console.error(err);
       res
