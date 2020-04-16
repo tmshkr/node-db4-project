@@ -42,6 +42,21 @@ server.get("/api/recipes/:id/instructions", (req, res) => {
     });
 });
 
+server.get("/api/ingredients/:name/recipes", (req, res) => {
+  db.getRecipesByIngredient(req.params.name)
+    .then((recipes) =>
+      recipes.length
+        ? res.json(recipes)
+        : res.status(404).send("no recipes use that ingredient")
+    )
+    .catch((err) => {
+      console.error(err);
+      res
+        .status(500)
+        .json({ message: "There was a problem getting the recipes" });
+    });
+});
+
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => {
   console.log(`Listening on port ${PORT}...`);
