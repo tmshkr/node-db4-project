@@ -10,7 +10,7 @@ exports.up = function (knex) {
       .createTable("ingredients", (tbl) => {
         tbl.string("name").notNullable();
         tbl.float("quantity").notNullable();
-        tbl.string("unit").notNullable();
+        tbl.string("unit");
         tbl
           .integer("recipe_id")
           .unsigned()
