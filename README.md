@@ -23,16 +23,16 @@ The requirements for the system, as stated by the client are:
 
 ### Migrations and Seeds
 
-- Write a migration file that creates all tables necessary to model this data
-- Write seed files to populate the tables with test data. **Hint**: Keep your recipes *very* simple or this step could become extremely time consuming.
+- [x] Write a migration file that creates all tables necessary to model this data
+- [x] Write seed files to populate the tables with test data. **Hint**: Keep your recipes *very* simple or this step could become extremely time consuming.
 
 ### Data Access
 
 In addition to the `migrations` and `seeding` scripts, write a data access file that **exports** an object with the following functions:
 
-- `getRecipes()`: should return a list of all recipes in the database.
-- `getShoppingList(recipe_id)`: should return a list of all ingredients and quantities for a given recipe
-- `getInstructions(recipe_id)`: should return a list of step by step instructions for preparing a recipe
+- [x] `getRecipes()`: should return a list of all recipes in the database.
+- [x] `getShoppingList(recipe_id)`: should return a list of all ingredients and quantities for a given recipe
+- [x] `getInstructions(recipe_id)`: should return a list of step by step instructions for preparing a recipe
 
 Organize and name your files anyway you see fit.
 
@@ -40,7 +40,7 @@ Organize and name your files anyway you see fit.
 
 Build the following endpoints. Write any additional data access helpers as needed.
 
-- `GET /api/recipes/`: all recipes (without details about ingredients or steps)
-- `GET /api/recipes/:id/shoppingList`: a list of ingredients and quantites for a single recipe
-- `GET /api/recipes/:id/instructions`: a correctly ordered list of how to prepare a single recipe
-- `GET /api/ingredients/:id/recipes`: all recipes in the system that utilize a single ingredient 
+- [x] `GET /api/recipes/`: all recipes (without details about ingredients or steps)
+- [x] `GET /api/recipes/:id/shoppingList`: a list of ingredients and quantites for a single recipe
+- [x] `GET /api/recipes/:id/instructions`: a correctly ordered list of how to prepare a single recipe
+- [x] `GET /api/ingredients/:id/recipes`: all recipes in the system that utilize a single ingredient 
